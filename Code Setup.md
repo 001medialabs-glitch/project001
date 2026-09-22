@@ -409,7 +409,6 @@ namespace ConsoleApp1
                     Console.WriteLine($"Unknown gesture: {e.GestureType}");
                     break;
             }
-
         }
     }
 }
@@ -581,7 +580,7 @@ namespace ConsoleApp1
 ```
 
 
-Once the code prints the right hand coordinates positions correctly, we can change the code in the function to only send Y coordinate to the arduino as such. 
+Once the code prints the right hand coordinates positions correctly, we can change the code in TrackingRightHand function to only send Y coordinate to the arduino as such. 
 
 ``` cs 
  private static void TrackRightHand(Body body)
@@ -602,7 +601,7 @@ Once the code prints the right hand coordinates positions correctly, we can chan
 ```
 
 
-And change the Arduino loop code as such to read data. 
+And change the Arduino loop code to read data.
 
 ``` cpp
 void loop() {
