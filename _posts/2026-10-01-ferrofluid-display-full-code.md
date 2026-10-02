@@ -311,3 +311,12 @@ void loop() {
 
 
 ```
+
+
+## Kinect Code
+
+There are three functions. In the main function we open the Kinect, accept the new incoming frames(BodyReader_FrameArrived), and register event handlers that trigger when an event occurs (GestureController_GestureRecognized()).
+
+## Arduino Code
+
+A comment on this code. You might have noticed that the Kinect prints out a lot of data very quickly. It's difficult for the Arduino/Ferrofluid to keep up with all this data.

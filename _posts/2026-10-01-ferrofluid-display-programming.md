@@ -9,10 +9,7 @@ http://
 
 You can find the full and latest code [here]({% post_url 2026-10-01-ferrofluid-display-full-code  %}).
 
-
-Okay. There is a lot of things in my mind I want this project to do. I've broken the process down in incremental steps. 
-
-JOURNEY
+### JOURNEY
 - Turn the magnet on and off 
     
 - Vary the strength of the magnet
@@ -30,10 +27,8 @@ JOURNEY
 
 ### Turn the Magnet On and Off
 
-The first task is to turn the magnet on and off. Although it may sound simple, this is a full integration test between the components. This includes confirming that the Arduino is functioning and can connect to the computer, that there are no faulty components in the wiring, and that the wiring has been connected correctly.
+The first task is to turn the magnet on and off. Although it may sound simple, this is a integration test. This confirms that the Arduino is functioning and can connect to the computer, that there are no faulty components in the wiring, and that the wiring has been connected correctly.
 
-Troubleshooting Arduino: 
-  Port not detected(linux)
 
 ```cpp
 /*
@@ -106,7 +101,7 @@ Notice that the ferrofliud rises and drops smoothly, meaning the magnet is "vary
 
 ### Basic Patterns 
 
-Partial integration complete! 80% of the way there( Don't think too much about the next 20%). With PWM a success the next step is optional, but I decided to create some basic patterns that I thought were cool. 
+80% of the way there ( Don't think too much about the next 20%). I decided to create some basic patterns that I thought were cool. 
 
 ```cpp
 int outPin = 9;
@@ -179,9 +174,10 @@ void loop() {
 
 ### Kinect Code 
 
-With the arduino setup complete the next half of the equation (remeber I said 80%) is to configure the Kinect. 
+With the arduino setup complete the next half of the equation (remeber I said 80%) is to use the Kinect.
 
-Reference [here]({% post_url 2026-10-01-ferrofluid-display-getting-started %}) as to how to setup the environment for the Kinect. 
+[Kinect Setup]({% post_url 2026-10-01-ferrofluid-display-getting-started %}) 
+If you are having issues power cycling check the link above. 
 
 ```cpp
 using System;
@@ -284,17 +280,15 @@ namespace ConsoleApp1
 
 That's a lot! I get it, you don't care how it works. Just copy and paste. But if you are interested in a deeper dive in how this code actually works you can check [here]({% post_url 2026-10-01-ferrofluid-display-full-code %}).
 
-There are three functions. In the main function we open the Kinect, accept the new incoming frames(BodyReader_FrameArrived), and register event handlers that trigger when an event occurs (GestureController_GestureRecognized()).
-
 
 ### Rise ferrofluid on Wave Left
 
-Full integration test! The next step is to have the Kinect send commands to the arduino. When the Kinect detects a wave left, it'll send it to the arduino. 
+The next step is to have the Kinect send commands to the arduino. When the Kinect detects a wave left, it'll send it to the arduino. 
 
 Windows only allows one program to use the COM port at a time. 
 
 
-**Note: Upload the code to the arduino first and then run the C# code. Running the Arduino code while the C# code is running will cause an error.**
+**Note: Upload the code to the arduino first and then run the C# code. Uploading the Arduino code while the C# code is running will cause an error because the COM port is already in use.**
 
 ```cpp
 
@@ -345,12 +339,9 @@ void loop() {
 
 ```cs
 ...
-using Microsoft.Kinect;
-using LightBuzz.Vitruvius;
-
 
 //connecting with arduino
-using System.IO.Ports;
+using System.IO.Ports; //added
 
 
 namespace ConsoleApp1
@@ -370,8 +361,6 @@ namespace ConsoleApp1
             
             ...
 
-            bodyReader.Dispose();
-            sensor.Close();
             arduino.Close(); //CLOSE MEEEEEE
 
         }
@@ -550,19 +539,7 @@ namespace ConsoleApp1
         {
             switch (e.GestureType)
             {
-                case GestureType.WaveLeft:
-                    Console.WriteLine("Wave Left");
-                    arduino.WriteLine("WL");
-                    break;
-
-                case GestureType.WaveRight:
-                    Console.WriteLine("Wave Right");
-                    arduino.WriteLine("WR");
-                    break;
-
-                default:
-                    Console.WriteLine($"Unknown gesture: {e.GestureType}");
-                    break;
+                ...
             }
         }
 
@@ -571,7 +548,7 @@ namespace ConsoleApp1
 ```
 
 
-Once the code prints the right hand coordinates positions correctly, we can change the code in TrackingRightHand function to only send Y coordinate to the arduino as such. 
+Once the code prints the right hand coordinates positions correctly, we can change the code in TrackingRightHand function to only send Y (up down) coordinate to the arduino as such. 
 
 ``` cs 
  private static void TrackRightHand(Body body)
@@ -618,4 +595,4 @@ void loop() {
 }
 
 ```
-A comment on this code. You might have noticed that the Kinect prints out a lot of data very quickly. It's difficult for the Arduino/Ferrofluid to keep up with all this data.
+

@@ -8,13 +8,16 @@ date: 2026-10-01 05:36 -0400
 ## Components
 
 #### 24v DC Magnet (1500KG) ~3amps
-![alt text](images/magnet_website.png)
 
+![alt text](<images/magnet display_1.365.1.png>)
 
+https://www.alibaba.com/product-detail/P20063-Diameter-20cm-24v-DC-Strong_1601396493953.html?spm=a2700.galleryofferlist.normal_offer.d_title.6ecf13a0tg9dEy&priceId=8a2e60d7f84d4ac5af6b5c1b5c3df37
+
+f
 #### MOSFET Module IRF520 3.3-5V Turn on, rated for 0-24V
 ![alt text](images/image.png)
 
-#### Flyback Diode - MBR10100 (REQUIRED)
+#### Flyback Diode - MBR10100
 ![alt text](images/image-1.png)
 
 #### 18AWG Wire
@@ -52,7 +55,21 @@ The goal is to be able to vary the strength of the magnet. A MOSFET is a gate th
 
 
 ### Mosfet Module to Arduino
-The mosfet module has three pins that help to control the gate. SIGNAL connects to pwm 9, VCC connects to 5V, and GND connects to ground.
+The mosfet module has three pins that help to control the gate. 
+
+|MOSFET  |  Arduino |
+|------------------ |
+|SIGNAL  |  ~9      |
+|VCC     |  5V      |
+|GND     |  GND     |
+
+![alt text](<images/mosfet control wires_1.410.1.png>)
+
+
+![alt text](<images/mosfet module diagram.png>)
+
+
+
 
 ### Power Supply
 
@@ -80,11 +97,21 @@ There are four terminals on the MOSFET module. One pair connects to the load and
 
 Cut four 18awg wires. Attach fork terminals to one end of each wire.
 
+![alt text](<images/wires crimped_1.570.1.png>)
+
+
 ### MOSFET to Power
 
-The two terminals on the right side of the MOSFET module are for the power. 
+Two terminals on MOSFET module are for the power. On my MOSFET module they are labeled GND and VIN. Connect two of the cut wires here. 
 
-Connect a V- terminal on the power supply to the GND terminal using the cut out wires. Connect a V+ terminal on the power supply to the V- terminal using the cut out wires.
+
+
+![alt text](<images/mosfet load wires_1.427.2.png>)
+
+ 
+Connect the GND terminal on the MOSFET module to a  V- terminal on the power supply. 
+
+Connect the VIN terminal on the mosfet MODULE to a V+ terminal on the power supply.
 
 
 ![alt text](<images/assembly power supply DC_1.391.1.png>)
@@ -93,17 +120,28 @@ Connect a V- terminal on the power supply to the GND terminal using the cut out 
 
 ### MOSFET to Magnet
 
-The two terminals on the right side of the MOSFET module are for the load. 
+The remaining two terminals on the MOSFET module are for the load. 
 
-Connect the remaining two cut out wires to the power side of the MOSFET module. 
+Connect the remaining two cut out wires to the load side of the MOSFET module. 
+
+
+![alt text](<images/mosfet power wires_1.427.2_1.427.1.png>)
 
 
 Connect the two cables coming from the MOSFET load side and the two cables from the magnet with the flyback diode through a terminal block like so. 
+The flyback diode is on the side of the magnet wires in the image below. 
 
 ![alt text](<images/assembly terminal block magnet 3_1.423.1.png>)
 
 
+Note, it is very important that the diode is placed the right way. This will ensure that the inductive spikes have a safe return path. The diode should be in a bridge configuration against the current flow. Be warned, I fried my computer because of this. 
+
+ 
+![alt text](<images/assembly terminal block magnet 4_1.424.1.png>)
+
+
 The flyback diode helps to protect the MOSFET module against inductive spikes. The block terminal connects the magnet, flyback diode, and the MOSFET module together. 
+
 
 
 ### Tip
@@ -116,12 +154,6 @@ Screw on the wires coming from the mosfet into the block terminal first. On the 
 ![alt text](<images/assembly terminal block magnet 2_1.422.1.png>)
 
 
-
-Note, it is very important that the diode is placed the right way. This will ensure that the inductive spikes have a safe return path. The diode should be in a bridge configuration against the current flow. Be warned, I fried my computer because of this. 
-
-
- 
-![alt text](<images/assembly terminal block magnet 4_1.424.1.png>)
 
 
 My biggest advice is that if you, like me, are finding yourself tearing down and putting the setup back together, always have the v- wire on the same place (last terminal slot on the block terminal ), that way you can't misplace it. 
