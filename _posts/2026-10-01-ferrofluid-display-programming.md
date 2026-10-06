@@ -3,7 +3,7 @@ layout: post
 title: Ferrofluid Display - Programming
 date: 2026-10-01 05:39 -0400
 ---
-http://
+
 
 ## Code
 

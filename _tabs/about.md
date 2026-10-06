@@ -8,9 +8,10 @@ order: 4
 {: .prompt-tip } -->
 
 
-Hi! I'm Chris. I like making things that touch the boundaries between science and art. I like making interactive generative art. 
+Hi! I'm Chris. I like making things that touch the boundaries between science and art. Some things are small, some are big. I use technology to create things that touch the edges of reality. All projects are open source.
+
 
 You can check out the rest of my projects here. ?? 
 
-Support on patreon
-https://patreon.com/PartlyTrue_
+### Support on Patreon
+[https://patreon.com/PartlyTrue_](https://patreon.com/PartlyTrue_)
