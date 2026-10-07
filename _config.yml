@@ -14,33 +14,33 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Partially True_ # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+tagline: Christopher Perez # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  Welcome to the club!
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://001medialabs-glitch.github.io"
-
+#url: ""
 github:
-  username: github_username # change to your GitHub username
+  username: 001medialabs # change to your GitHub username
 
-twitter:
-  username: twitter_username # change to your Twitter username
+patreon:
+  username: partlytrue_ # change to your Twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: christopher 
-  email: example@domain.com # change to your email address
+  name: Christopher Perez 
+  email: 001medialabs@gmail.com # change to your email address
   fediverse_handle: # fill in your fediverse handle. E.g. "@username@domain.com"
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your Twitter homepage
-    - https://github.com/username # change to your GitHub homepage
+    - https://patreon.com/partlytrue_ # change to your Twitter homepage
+    - https://github.com/001medialabs # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -89,7 +89,7 @@ pageviews:
 #     light — Use the light color scheme
 #     dark — Use the dark color scheme
 #
-theme_mode: # [light | dark]
+theme_mode: dark # [light | dark]
 
 # The CDN endpoint for media resources.
 # Notice that once it is assigned, the CDN url
@@ -99,7 +99,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar:  ./images/image-4.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
@@ -112,7 +112,7 @@ actions:
   # Display "Edit this post" action on each post page to encourage contributions.
   edit_post:
     enabled: false # set to true to display the "Edit this post" action.
-    url: "" # repository base URL, e.g. https://github.com/cotes2020/jekyll-theme-chirpy/edit/master
+    url: "https://github.com/001medialabs-glitch/project001/" # repository base URL, e.g. https://github.com/cotes2020/jekyll-theme-chirpy/edit/master
     # Use dynamic or static URL for the edit link.
     # If `static_url` is false, the post's path will be appended to the `url` above as the final edit link.
     # Set to true if the URL should remain unchanged, which means each post will share the same edit link.
@@ -161,7 +161,9 @@ pwa:
 paginate: 10
 
 # The base URL of your site
-baseurl: "/project001" 
+baseurl: "/project001"
+#baseurl: ""
+
 # ------------ The following options are not recommended to be modified ------------------
 
 kramdown:
